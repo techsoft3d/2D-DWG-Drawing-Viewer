@@ -1,0 +1,657 @@
+#toolBar {
+    position: absolute;
+    display: none;
+    user-select: none;
+    z-index: 5;
+    -webkit-user-select: none;
+}
+
+.toolbar-tools {
+    background: rgba(255,255,255,1.0);
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    height: 42px;
+    opacity: 0.6;
+}
+
+.hoops-tool {
+    width: 34px;
+    height: 34px;
+    margin: 5px;
+    display: inline-block;
+    user-select: none;
+}
+
+.active-tool {
+    border-radius: 1px;
+    border-color: #888888;
+    border-style: solid;
+    border-width: 1px;
+    margin: 4px;
+    box-shadow: 0px 0px 6px #888888;
+}
+
+.tool-separator {
+    width: 1px;
+    height: 100%;
+    background-color: black;
+    user-select: none;
+    pointer-events: none;
+    position: relative;
+    top: -2px;
+    display: inline-block;
+}
+
+.toolbar-submenu {
+    background: rgba(255,255,255,1.0);
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 3px;
+    z-index: 8;
+    user-select: none;
+}
+
+.toolbar-modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 4;
+    margin: 0;
+    padding: 0;
+    border: none;
+    top: 0;
+    left: 0;
+}
+
+.submenu-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.slider-menu {
+    height: 125px;
+    width: 30px;
+}
+
+.toolbar-slider {
+    left: 8px;
+    top: 15px;
+}
+
+#explosion-slider {
+    background: rgb(222,222,222);
+}
+
+.toolbar-cp-plane {
+    margin-bottom: 4px;
+    background-color: white;
+}
+
+.toolbar-cp-plane.selected {
+    background-color: lightblue;
+}
+
+.toolbar-cp-plane.inverted {
+    background-color: blue;
+}
+
+#snapshot-dialog {
+    display: none;
+    position: absolute;
+}
+
+#snapshot-dialog-cancel-button {
+    font-size: 13px;
+}
+
+.submenus {
+    border: 1px solid #020203;
+}
+
+.submenus:after, .submenus:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.submenus:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-top-color: rgba(255,255,255,1);
+    border-width: 7px;
+    left: 50%;
+    margin-left: -7px;
+}
+
+.submenus:before {
+    border-color: rgba(2, 2, 3, 0);
+    border-top-color: #020203;
+    border-width: 8px;
+    left: 50%;
+    margin-left: -8px;
+}
+
+
+.smarrow {
+    position: relative;
+    background: #88b7d5;
+    border: 1px solid rgb(128,128,128);
+    margin: 0 auto;
+    width: 3px;
+    top: -2px;
+}
+
+.smarrow:after, .smarrow:before {
+    bottom: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.smarrow:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #FFFFFF;
+    border-width: 3px;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.smarrow:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: rgb(128,128,128);
+    border-width: 4px;
+    left: 50%;
+    margin-left: -4px;
+}
+
+.submenu-icon.disabled {
+    opacity: 0.2;
+}
+
+
+.tool-icon, .submenu-icon {
+    background: url(images/toolbarsprite.png?v=2021PC) no-repeat top left;
+}
+
+/* PASTSE SPRITESHEET FROM  https://draeton.github.io/stitches/ here
+    note you will need to do some renaming of the output in order to make the names match up.
+    ".sprie-" -> ".toolbar-"
+    "-hover" -> ".hover"
+*/
+
+.toolbar-back {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -5px;
+}
+
+.toolbar-back.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -5px;
+}
+
+.toolbar-bottom {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -5px;
+}
+
+.toolbar-bottom.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -5px;
+}
+
+.toolbar-camera {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -5px;
+}
+
+.toolbar-camera.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -5px;
+}
+
+.toolbar-click {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -5px;
+}
+
+.toolbar-click.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -5px;
+}
+
+.toolbar-cuttingplane {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -47px;
+}
+
+.toolbar-cuttingplane.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -47px;
+}
+
+
+
+.toolbar-cuttingplane-x {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -257px;
+}
+
+.toolbar-cuttingplane-y {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -215px;
+}
+
+.toolbar-cuttingplane-z {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -173px;
+}
+
+.toolbar-cuttingplane-face {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -47px;
+}
+
+.toolbar-cuttingplane-section {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -341px;
+}
+
+.toolbar-cuttingplane-toggle {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -299px;
+}
+
+.toolbar-cuttingplane-reset {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -341px;
+}
+
+.toolbar-explode {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -47px;
+}
+
+.toolbar-explode.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -47px;
+}
+
+.toolbar-face {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -47px;
+}
+
+.toolbar-face.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -47px;
+}
+
+.toolbar-front {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -47px;
+}
+
+.toolbar-front.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -47px;
+}
+
+.toolbar-hidden-line {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -89px;
+}
+
+.toolbar-hidden-line.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -89px;
+}
+
+.toolbar-home {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -89px;
+}
+
+.toolbar-home.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -89px;
+}
+
+.toolbar-iso {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -89px;
+}
+
+.toolbar-iso.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -89px;
+}
+
+.toolbar-left {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -89px;
+}
+
+.toolbar-left.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -89px;
+}
+
+.toolbar-measure-angle {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -131px;
+}
+
+.toolbar-measure-angle.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -131px;
+}
+
+.toolbar-measure-distance {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -131px;
+}
+
+.toolbar-measure-distance.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -131px;
+}
+
+.toolbar-measure-edge {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -131px;
+}
+
+.toolbar-measure-edge.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -131px;
+}
+
+.toolbar-measure-point {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -131px;
+}
+
+.toolbar-measure-point.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -131px;
+}
+
+.toolbar-note {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -173px;
+}
+
+.toolbar-note.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -173px;
+}
+
+.toolbar-orbit {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -173px;
+}
+
+.toolbar-orbit.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -173px;
+}
+
+.toolbar-ortho {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -173px;
+}
+
+.toolbar-ortho.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -173px;
+}
+
+.toolbar-persp {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -173px;
+}
+
+.toolbar-persp.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -173px;
+}
+
+.toolbar-redline-circle {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -215px;
+}
+
+.toolbar-redline-circle.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -215px;
+}
+
+.toolbar-redline-freehand {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -215px;
+}
+
+.toolbar-redline-freehand.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -215px;
+}
+
+.toolbar-redline-note {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -215px;
+}
+
+.toolbar-redline-note.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -215px;
+}
+
+.toolbar-redline-rectangle {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -215px;
+}
+
+.toolbar-redline-rectangle.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -215px;
+}
+
+.toolbar-right {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -257px;
+}
+
+.toolbar-right.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -257px;
+}
+
+.toolbar-select {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -257px;
+}
+
+.toolbar-select.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -257px;
+}
+
+.toolbar-area-select {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -341px;
+}
+
+.toolbar-settings {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -257px;
+}
+
+.toolbar-settings.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -257px;
+}
+
+.toolbar-shaded {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -257px;
+}
+
+.toolbar-shaded.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -257px;
+}
+
+.toolbar-snapshot {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -299px;
+}
+
+.toolbar-snapshot.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -299px;
+}
+
+.toolbar-top {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -299px;
+}
+
+.toolbar-top.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -299px;
+}
+
+.toolbar-turntable {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -299px;
+}
+
+.toolbar-turntable.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -215px -299px;
+}
+
+.toolbar-walk {
+    width: 32px;
+    height: 32px;
+    background-position: -257px -299px;
+}
+
+.toolbar-walk.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -299px -299px;
+}
+
+.toolbar-wireframe {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -5px;
+}
+
+.toolbar-wireframe.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -47px;
+}
+
+.toolbar-wireframeshaded {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -89px;
+}
+
+.toolbar-wireframeshaded.hover {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -131px;
+}
+
+.toolbar-xray {
+    width: 32px;
+    height: 32px;
+    background-position: -341px -5px;
+    
+    /* Temporary style to differentiate between the xray and wireframe icon */
+    background-color: lightgrey; 
+}

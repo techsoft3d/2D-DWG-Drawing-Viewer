@@ -1,0 +1,207 @@
+/* 
+    Parent container positioned relative fixes a bug with jQuery draggable
+    https://stackoverflow.com/questions/3523747/webkit-and-jquery-draggable-jumping/20147335#20147335
+*/
+#viewer-settings-dialog-container {
+    position: relative;
+}
+
+
+#viewer-settings-dialog {
+    display: none;
+    z-index: 7;
+    background: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    min-width: 500px;
+}
+
+    #viewer-settings-dialog .hoops-ui-window-body {
+        height: 335px;
+        overflow-y: scroll;
+        padding-right: 10px;
+        display: none;
+    }
+
+        #viewer-settings-dialog .hoops-ui-window-body.selected {
+            display: block;
+        }
+
+    #viewer-settings-dialog .tab {
+        position: relative;
+        padding: 5px;
+        top: -5px;
+        border: 1px solid black;
+        background-color: lightgray;
+    }
+
+        #viewer-settings-dialog .tab.selected {
+            color: black;
+            background-color: white;
+        }
+
+.settings-group {
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}
+
+    .settings-group > div:nth-child(even) {
+        background-color: lightgrey;
+    }
+
+    .settings-group label {
+        display: inline-block;
+    }
+
+.settings-group-header {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.settings-group-general .right-align {
+    float: right;
+}
+
+.settings-group-general .bold{
+    font-weight: bold;
+}
+
+.settings-group-general .center-align {
+    text-align: center;
+}
+
+.settings-group-general .clear-both {
+    clear: both;
+    display: block;
+    padding: 0px;
+}
+
+.settings-group.settings-group-colors {
+    padding-bottom: 8px;
+}
+
+    .settings-group.settings-group-colors .settings-block {
+        padding-top: 1px;
+    }
+
+#settings-tab-walk .settings-block {
+    padding: 13px 5px;
+}
+
+.settings-block {
+    padding: 5px;
+}
+
+    .settings-block * {
+        padding: 2px 0px;
+    }
+
+    .settings-block > * {
+        vertical-align: middle;
+        vertical-align: -webkit-baseline-middle;
+    }
+
+    .settings-block > div {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    .settings-block input[type=number] {
+        width: 65px;
+        height: 15px;
+        text-align: center;
+    }
+
+.grayed-out {
+    opacity: .5;
+}
+
+#viewer-settings-ok-button, #viewer-settings-cancel-button {
+    font-size: 13px;
+}
+
+.hoops-ui-window {
+    z-index: 5;
+    position: absolute;
+    background: rgba(100,100,100,0.8);
+    border: 1px solid black;
+    border-radius: 6px;
+    overflow: hidden;
+    border-style: solid;
+    background: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.hoops-ui-window-header {
+    font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 15px 0px 0px 5px;
+    background: white;
+    cursor: default;
+    border-bottom: 1px solid gray;
+}
+
+.hoops-ui-window-body {
+    padding-top: 5px;
+    font-family: Verdana;
+    border-bottom: 1px solid gray;
+    background-color: white;
+    padding: 7px 11px 5px 11px;
+    overflow: hidden;
+}
+
+.hoops-ui-window-footer {
+    padding: 5px 0px 5px 5px;
+    background-color: white;
+    height: 21px;
+}
+
+    .hoops-ui-window-footer .hoops-ui-footer-buttons {
+        position: relative;
+        right: 11px;
+        float: right;
+    }
+
+    .hoops-ui-window-footer .version {
+        float: left;
+        font-size: 10px;
+        color: #808080;
+        position: relative;
+        left: 5px;
+        bottom: -13px;
+    }
+
+/* minicolor styling */
+.minicolors-theme-default.minicolors {
+    width: 20px;
+    height: 20px;
+}
+
+.minicolors-swatch {
+    width: 20px !important;
+    height: 20px;
+    top: 6px;
+}
+
+.minicolors-theme-default .minicolors-swatch {
+    top: 6px !important;
+}
+
+.minicolors-theme-default .minicolors-input {
+    width: 120px !important;
+    padding-left: 30px !important;
+}
+
+.minicolors-grid .minicolors-picker, .minicolors-grid .minicolors-picker > div {
+    padding: 0;
+}

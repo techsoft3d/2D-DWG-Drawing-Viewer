@@ -1,0 +1,422 @@
+#modelTree {
+    font-family: Tahoma, Geneva, sans-serif;
+    border-bottom: .1em solid #808080;
+    overflow: hidden;
+}
+
+#cadviewtree {
+    font-family: Tahoma, Geneva, sans-serif;
+    border-bottom: .1em solid #808080;
+    overflow: hidden;
+}
+
+.ui-modeltree {
+    margin: 0;
+    border: none !important;
+    /* temp */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    list-style-type: none;
+    padding: 0;
+    padding-left: 1.8em;
+}
+
+#sheetsTree .ui-modeltree,
+#filtersTree .ui-modeltree,
+#cadViewTree .ui-modeltree,
+#configurationsTree .ui-modeltree,
+#bcfTree .ui-modeltree {
+    padding: 0;
+}
+
+.ui-visibility-toggle {
+    float: left;
+    width: 1.6875em;
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.ui-modeltree-item {
+    border-left: .05625em solid #808080;
+}
+
+    .ui-modeltree-item.visibility {
+        border-left-width: 0;
+    }
+
+    /* sets the background for the label*/
+    .ui-modeltree-item.selected .ui-modeltree-label {
+        background-color: lightskyblue;
+    }
+
+    /* sets the background color for a selected sheet */
+    .ui-modeltree-item.selected-sheet .ui-modeltree-label {
+        background-color: lightskyblue;
+    }
+
+    /* sets the background for all child labels */
+    .ui-modeltree-item.selected .ui-modeltree-children .ui-modeltree-label {
+        background-color: lightblue;
+    }
+
+    .ui-modeltree-item .ui-mixedselection-icon {
+        display: none;
+        width: 1em;
+        height: 1em;
+        background: lightblue;
+        float: right;
+        margin-top: -1.35em;
+        margin-right: .45em;
+    }
+
+    .ui-modeltree-item.mixed > .ui-modeltree-container > .ui-mixedselection-icon {
+        display: block;
+    }
+
+    .ui-modeltree-item.visibility.partHidden .ui-modeltree-partVisibility-icon {
+        opacity: .2;
+    }
+
+    .ui-modeltree-item.visibility.partialHidden > .ui-modeltree-partVisibility-icon:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 1.2375em solid transparent;
+        border-right: 1.2375em solid transparent;
+        border-bottom: 1.2375em solid white !important;
+        display: block;
+        transform: rotate(-45deg);
+        position: relative;
+        left: -.7875em;
+        top: -.225em;
+        opacity: .85;
+    }
+
+    .ui-modeltree-item .ui-modeltree-container .ui-modeltree-label.norecurseselect {
+        background-color: white;
+    }
+
+/* Hide visibility icons */
+#visibility_4fc94219_markupviews {
+    visibility: hidden;
+}
+
+#sheetsTree .ui-modeltree-expandNode, #sheetsTree .ui-modeltree-icon {
+    display: none;
+}
+
+.ui-modeltree-children {
+    padding-left: .84375em;
+    list-style-type: none;
+    display: none;
+}
+
+.ui-modeltree-visibility-children {
+    padding-left: 0;
+    list-style-type: none;
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.ui-modeltree-icon {
+    width: 1.6875em;
+    height: 1.6875em;
+    background-size: 1.6875em;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border-right: .05625em solid #808080;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+    .ui-modeltree-icon.body {
+        background-image: url("images/modelbrowser_body.png");
+    }
+
+    .ui-modeltree-icon.view {
+        background-image: url("images/view.png");
+        background-size: .9em;
+    }
+
+    .ui-modeltree-icon.viewfolder {
+        background-image: url("images/viewfolder.png");
+        background-size: .9em;
+    }
+
+    .ui-modeltree-icon.modelroot {
+        background-image: url("images/modelbrowser_modelroot.png");
+    }
+
+    .ui-modeltree-icon.assembly, .ui-modeltree-icon.container {
+        background-image: url("images/modelbrowser_assembly.png");
+    }
+
+    .ui-modeltree-icon.measurement {
+        background-image: url("images/modelbrowser_measurement.png");
+    }
+
+    .ui-modeltree-icon.menu {
+        background-image: url("images/modelbrowser_menu.png");
+        border: none;
+        float: right;
+    }
+
+
+
+.ui-modeltree-partVisibility-icon {
+    width: 1.6875em;
+    height: 1.6875em;
+    display: inline-block;
+    border-right: .05625em solid #808080;
+    float: left;
+    background-image: url("images/modelbrowser_visibility.png");
+    background-size: 1.6875em;
+    background-repeat: no-repeat;
+    border: .05625em solid #808080;
+}
+
+    .ui-modeltree-partVisibility-icon.partHidden {
+        background-color: lightgray;
+    }
+
+.ui-modeltree-expandNode {
+    background-repeat: no-repeat;
+    background-image: url("images/modelbrowser_expandlabel.png");
+    width: 1.6875em;
+    height: 1.6875em;
+    background-size: 1.6875em;
+    display: inline-block;
+    float: left;
+    background-color: white;
+}
+
+    .ui-modeltree-expandNode.expanded {
+        background-image: url("images/modelbrowser_collapselabel.png");
+        border-right: .05625em solid #808080;
+    }
+
+
+    .ui-modeltree-expandNode:after {
+        content: '';
+        width: .84375em;
+        height: .84375em;
+        border: .05625em solid gray;
+        transform: rotate(45deg) skew(20deg, 20deg);
+        border-bottom: solid transparent;
+        border-left-color: transparent;
+        top: .36em;
+        left: .9em;
+        display: block;
+        position: relative;
+    }
+
+    .ui-modeltree-expandNode.expanded:after {
+        transform: rotate(136deg) skew(5deg,5deg);
+        background: white;
+        position: relative;
+        top: 1.15em;
+        left: .294em;
+        width: .96em;
+        height: .96em;
+    }
+
+
+.ui-modeltree-label {
+    font-size: 90%;
+    user-select: none;
+    cursor: default;
+    height: 1.32em;
+    padding: .28125em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+
+.ui-modeltree-container {
+    height: 1.6875em;
+    border-bottom: .05625em solid #808080;
+    border-top: .05625em solid #808080;
+    white-space: nowrap;
+}
+
+/* Size for collapsed model browser */
+#modelBrowserWindow.ui-modelbrowser-small {
+    width: 1.875em !important;
+    height: 1.875em !important;
+    min-width: 0 !important;
+    overflow: hidden;
+}
+
+.ui-resizable-s {
+    position: relative;
+}
+
+/* Don't display handle arrows */
+.ui-resizable-e:before, .ui-resizable-e:after {
+    content: '';
+    width: 0 !important;
+    height: 0 !important;
+    top: .1125em !important;
+    right: -.3375em !important;
+    position: absolute;
+    display: none;
+}
+
+.ui-resizable-e:before {
+    border-bottom: .84375em solid transparent !important;
+    border-top: .84375em solid transparent !important;
+    border-left: .5625em solid black !important;
+    display: none;
+}
+
+.ui-resizable-e:after {
+    border-bottom: .7875em solid transparent !important;
+    border-top: .7875em solid transparent !important;
+    border-left: .50625em solid white !important;
+    position: absolute;
+    top: .16875em !important;
+    right: -.28125em !important;
+    display: none;
+}
+
+.ui-resizable-s:before, .ui-resizable-s:after {
+    content: '';
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+}
+
+.ui-resizable-s:before {
+    border-left: 1.18125em solid transparent !important;
+    border-right: 1.18125em solid transparent !important;
+    border-top: .5625em solid black !important;
+    bottom: -.3375em !important;
+    position: absolute;
+    left: 50% !important;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.ui-resizable-s:after {
+    border-left: 1.06875em solid transparent !important;
+    border-right: 1.06875em solid transparent !important;
+    border-top: .50625em solid white !important;
+    bottom: -.28125em !important;
+    position: absolute;
+    left: 50% !important;
+    transform: translateX(-50%);
+    display: none;
+}
+
+#modelBrowserLabel {
+    font-size: 1.0125em;
+    position: relative;
+    left: 1.62em;
+}
+
+/* header tabs*/
+#modelBrowserTabs {
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+    position: absolute;
+    left: 2em;
+    top: 0em;
+}
+
+.ui-modelbrowser-tab {
+    opacity: .5;
+}
+
+.browser-tab-selected {
+    opacity: 1;
+}
+
+/* scrollbar */
+.tree-scroll-container {
+    overflow: hidden;
+    height: inherit;
+    display: none;
+}
+
+.iScrollVerticalScrollbar {
+    height: inherit;
+    margin-top: 1.8em;
+    top: .9px !important;
+}
+
+
+/* BCF Tree */
+#bcfTree select {
+    width: 100%;
+    padding: .2em;
+    font-size: 1em;
+}
+
+.ui-bcf-topic {
+    padding: .3em;
+    margin: .2em;
+    border: .2em solid #808080;
+
+    word-break: break-all;
+}
+
+    .ui-bcf-topic .title {
+        margin: auto;
+        text-align: center;
+        background-color: #88b7d5;
+        display: block;
+        width: 90%;
+        padding: .7em;
+        font-size: 1em;
+    }
+
+
+    .ui-bcf-topic .viewpoint {
+        text-align: center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ui-bcf-topic .topic-data {
+        padding: .1em;
+    }
+
+    .ui-bcf-topic .comment {
+        border: .1em solid #808080;
+        margin: .5em;
+        padding: .3em;
+    }
+
+    .ui-bcf-topic img {
+        width: 200px;
+        padding: 1em;
+    }
+
+.ui-bcf-input {
+    padding: .5em;
+    max-width: 100%;
+}
+
+.ui-bcf-edit {
+    border: 0em;
+}
+
+.ui-bcf-delete {
+    float: right;
+}
+
+.ui-bcf-comment-delete {
+    float: right;
+}

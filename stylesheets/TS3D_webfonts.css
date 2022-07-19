@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Bd';
+  src: url('webfonts/2C94B8_0_0.eot');
+  src: url('webfonts/2C94B8_0_0.eot?#iefix') format('embedded-opentype'), url('webfonts/2C94B8_0_0.woff2') format('woff2'), url('webfonts/2C94B8_0_0.woff') format('woff'), url('webfonts/2C94B8_0_0.ttf') format('truetype');}
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Roman';
+  src: url('webfonts/2C94B8_1_0.eot');
+  src: url('webfonts/2C94B8_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2C94B8_1_0.woff2') format('woff2'),url('webfonts/2C94B8_1_0.woff') format('woff'),url('webfonts/2C94B8_1_0.ttf') format('truetype');}
+@font-face {
+  font-family: 'HelveticaNeueLT-LightItalic';
+  src: url('webfonts/2C94B8_2_0.eot');
+  src: url('webfonts/2C94B8_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2C94B8_2_0.woff2') format('woff2'),url('webfonts/2C94B8_2_0.woff') format('woff'),url('webfonts/2C94B8_2_0.ttf') format('truetype');}
+@font-face {
+  font-family: 'HelveticaNeueLTStd-It';
+  src: url('webfonts/2C94B8_3_0.eot');
+  src: url('webfonts/2C94B8_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2C94B8_3_0.woff2') format('woff2'),url('webfonts/2C94B8_3_0.woff') format('woff'),url('webfonts/2C94B8_3_0.ttf') format('truetype');}
+

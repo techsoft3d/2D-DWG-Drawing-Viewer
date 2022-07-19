@@ -1,0 +1,75 @@
+.noteTextElement {
+    position: absolute;
+    width: 250px;
+    height: 160px;
+    z-index: 2;
+    background: rgba(180,180,180,0.8);
+    border-radius: 5px;
+    border: 1px solid black;
+    pointer-events: auto;
+}
+
+    .noteTextElement:after, .noteTextElement:before {
+        border: solid rgba(224, 24, 24, 0);
+        content: ' ';
+        height: 0;
+        left: -20px;
+        position: absolute;
+        width: 0;
+    }
+
+    .noteTextElement:after {
+        border-width: 11px;
+        border-right-color: rgba(190,190,190,1.0);
+        top: 13px;
+        left: -21px;
+    }
+
+    .noteTextElement:before {
+        border-width: 12px;
+        border-right-color: #000;
+        top: 12px;
+        left: -24px;
+    }
+
+    .noteTextElement textArea {
+        margin: 5px;
+        width: 200px;
+        height: 142px;
+        z-index: 2;
+        resize: none;
+    }
+
+    .noteTextElement .noteButton {
+        position: absolute;
+        left: 220px;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+    }
+
+        .noteTextElement .noteButton.color.blue {
+            background-color: blue;
+        }
+
+        .noteTextElement .noteButton.color.red {
+            background-color: red;
+        }
+
+        .noteTextElement .noteButton.color.green {
+            background-color: rgba(0,255,0,1);
+        }
+
+        .noteTextElement .noteButton.color.white {
+            background-color: white;
+        }
+
+        .noteTextElement .noteButton.color.black {
+            background-color: black;
+        }
+
+        .noteTextElement .noteButton.trash {
+            background: url(images/ui-icons_444444_256x240.png) no-repeat top left;
+            display: block;
+            background-position: -176px -96px;
+        }

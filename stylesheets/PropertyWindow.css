@@ -1,0 +1,48 @@
+#propertyContainer {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.propertyWindow {
+    overflow: hidden;
+
+    background: white;
+    cursor: default;
+    height: 25%;
+
+    /* prevent window from sliding up on resize*/
+    top: 0 !important;
+    
+    padding: 10px;
+    padding-top: 20px;
+}
+
+.propertyWindow.hidden {
+    height: 0px;
+    padding: 0px;
+    display: none;
+}
+
+.propertyWindow table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.propertyWindow table, .propertyWindow tr, .propertyWindow td {
+    border: 1px solid black;
+}
+
+.propertyWindow .headerRow {
+    font-weight: bold;
+}
+
+.propertyWindow td {
+    width: 50%;
+    word-break: break-all;
+}
+
+.propertyWindow .ui-resizable-handle.ui-resizable-n {
+    top: 0;
+    background: grey;
+    height: 10px;
+}

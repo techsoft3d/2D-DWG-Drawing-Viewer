@@ -1,0 +1,86 @@
+.ts3dLogo{
+  width: 53px;
+  height: 50px;
+  display: inline-block;
+  background-image: url('../images/TechSoft_3D_Logo_sm.png');
+  background-repeat: no-repeat;
+  vertical-align:middle;
+  background-size: contain;
+}
+
+.ts3dLogo a:hover{
+  text-decoration:none;
+}
+
+.ts3dLogoText{
+  font-family: 'HelveticaNeueLTStd-Roman', sans;
+  text-align: right;
+  font-size: 1.1em;
+  width: 75%;
+  max-width: 75%;
+  vertical-align: middle;
+  float:right;
+}
+.ts3dLogo_com_text{
+  margin-right:1%;
+  padding-right:2%;
+  border-right: 2px solid black;
+  
+}
+.ts3dLogo_page_text{
+}
+.logo-divider{
+     max-width: 2px;
+     display: none;
+ }
+
+.ts3dLogoContainer{
+  display: inline-block;
+  max-width: 20%;
+  vertical-align: middle;
+}
+.ts3dHeader{
+  text-align: left;
+  width:100%;
+  padding-bottom: 25px;
+  padding-top: 15px;
+}
+
+@media screen and (min-width: 400px) {
+  .ts3dLogoText{
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ts3dLogo{
+    background-image: url('../images/TechSoft_3D_Logo_m.png');
+    width: 314px;
+    height: 50px;
+  }
+  .ts3dLogoText{
+    font-size: 1.75em;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width : 992px) {
+  .ts3dLogo{
+    background-image: url('../images/TechSoft_3D_Logo_lg.png');
+    width: 314px;
+    height: 50px;
+  }
+  .ts3dLogoText{
+    font-size: 1.5em;
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1040px) {
+}
+
+@media screen and (min-width : 1200px) {
+  .ts3dLogoText{
+    font-size: 1.9em;
+    width: 70%;
+  }
+}

@@ -1,0 +1,205 @@
+.desktop-ui-window {
+    border-radius: .1875em;
+    border: .0625em solid black;
+    position: relative;
+}
+
+.desktop-ui-window-header {
+    background-color: rgba(180,180,180,1);
+    font-family: Arial;
+    font-weight: bold;
+    color: #222222;
+    padding: .3125em;
+    cursor: default;
+}
+
+.desktop-ui-window-content {
+    padding: .3125em;
+    background-color: white;
+}
+
+.ui-modelbrowser-window {
+    width: 15.625em;
+    min-width: 14em;
+    height: 100%;
+    background-color: white;
+    opacity: .85;
+    display: none;
+    border-radius: 0;
+    z-index: 3;
+}
+
+.desktop-ui-window-divider {
+    color: gray;
+    border-top: .0625em solid gray;
+    margin-top: .3125em;
+    margin-bottom: .3125em;
+}
+
+.ui-modelbrowser-header {
+    background-color: white;
+    border-bottom: .0625em solid #808080;
+    padding: 0;
+    height: 2em;
+    border-top-right-radius: .1875em;
+    border-top-left-radius: .1875em;
+    overflow: hidden;
+}
+
+    .ui-modelbrowser-header table {
+        width: 100%;
+    }
+
+.ui-modelbrowser-content {
+    padding: 0;
+    height: 75%;
+    overflow: hidden !important;
+}
+
+.ui-modelbrowser-minimizebutton {
+    width: 1.875em;
+    height: 1.875em;
+    background-size: 1.875em;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+    .ui-modelbrowser-minimizebutton.maximized {
+        background-image: url("images/modelbrowser_collapse.png");
+    }
+
+    .ui-modelbrowser-minimizebutton.minimized {
+        background-image: url("images/modelbrowser_expand.png");
+        background-position: -.0625em -.0625em;
+    }
+
+.ui-modelbrowser-minimizetd {
+    border-right: .0625em solid gray;
+    width: 1.875em;
+    height: 1.875em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
+.ui-modelbrowser-searchbox {
+    height: 1.875em;
+    border: none;
+    position: relative;
+    top: -.625em;
+    width: 9.375em;
+}
+
+.ui-modelbrowser-searchicon {
+    width: 1.875em;
+    height: 1.875em;
+    background-size: 1.875em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url("images/modelbrowser_search.png");
+}
+
+.ui-modelbrowser-searchfield {
+    position: absolute;
+    right: 0;
+    top: 0 !important;
+    height: 2.25em;
+}
+
+.ui-timeout-window {
+    display: none;
+    width: 25em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.ui-contextmenu {
+    background-color: white;
+    border: .0625em solid darkgray;
+    box-shadow: .625em .625em 1.25em .0625em rgba(0,0,0,0.75);
+}
+
+    .ui-contextmenu.modelbrowser {
+        font-size: .9375em;
+    }
+
+    .ui-contextmenu.small {
+        font-size: .5em;
+    }
+
+.ui-contextmenu-item {
+    padding: .3125em .625em;
+    cursor: default;
+}
+
+    .ui-contextmenu-item:hover {
+        background-color: lightblue;
+    }
+
+    .ui-contextmenu-item.disabled {
+        color: gray;
+    }
+
+.ui-contextmenu-separator {
+    background-color: darkgray;
+}
+
+.ui-modelbrowser-tab {
+    border: 0.125em none darkgray;
+    border-right: 0.125em solid darkgray;
+    cursor: default;
+    margin-left: 0.0em;
+    margin-right: 0.0em;
+    position: relative;
+    bottom: 0.0em;
+    padding: 0.3em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .ui-modelbrowser-tab.hidden {
+        display: none;
+    }
+
+#colorPicker {
+    width: 12em;
+    height: 17em;
+    display:none;
+    position:absolute;
+    border: 1px solid black;
+    background-color: white;
+}
+
+    #colorPickerHeader {
+        text-align: center;
+    }
+
+    #colorPickerFooter {
+        font-size: .8em;
+        margin-left: .2em;
+    }
+
+    #colorPickerFooter > button {
+        margin-right: .2em;
+        width: 4.5em;
+    }
+
+    #colorPickerActiveColorLabel {
+        position: relative;
+        top: -.5em;
+        margin-left: 1em;
+    }
+    
+    #colorPickerActiveColorSwatch {
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        margin-left: 1em;
+    }
+
+        

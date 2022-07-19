@@ -1,0 +1,85 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  overflow: hidden; /* disable scrollbars */
+  display: block;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+#ts3d_wrapper {
+  display: flex;
+  flex-flow: column;
+}
+
+#ts3d_header {
+  padding-top: 2.5rem !important;
+  background-color: white;
+  max-height: 40px;
+  padding: 20px;
+  flex: 0 1 auto;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #009bde;
+}
+
+#ts3d_title_wrapper {
+  font-family: "HelveticaNeueLTStd-Roman", sans;
+  margin: 0;
+  flex: 23em;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  flex-basis: content;
+}
+#ts3d_title {
+  font-size: 2em;
+  flex: 0 0 auto;
+}
+
+#ts3d_subtitle {
+  font-size: 1.5em;
+  text-indent: 0.5em;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+#ts3d_logo_wrapper {
+  float: right;
+  width: 30%;
+  min-width: 250px;
+  max-width: 400px;
+  flex: 0 0 auto;
+}
+
+#ts3d_logo {
+  width: 100%;
+  height: 100%;
+}
+
+#ts3d_body {
+  flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 767px) {
+  #ts3d_title_wrapper {
+    flex: 15em;
+  }
+  #ts3d_title,
+  #ts3d_subtitle {
+    font-size: 1em;
+  }
+}

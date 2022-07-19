@@ -1,0 +1,68 @@
+body.mobile {
+    font-size: 300%;
+}
+
+    body.mobile .ui-timeout-window {
+        font-size: 70%;
+    }
+
+    /* model browser */
+    body.mobile .propertyWindow td {
+        font-size: 75%;
+    }
+
+    body.mobile .ui-modelbrowser-window {
+        width: 99% !important;
+    }
+
+        @media screen and (orientation:landscape) {
+            body.mobile .ui-modelbrowser-window {
+                font-size: 50%;
+            }
+        }
+
+    body.mobile .ui-modeltree-label {
+        font-size: 66%;
+        padding-top: .8em;
+        font-weight: bold;
+        height: 1.5em;
+    }
+
+    body.mobile .propertyWindow {
+        border-top: .6em solid gray;
+    }
+
+        body.mobile .propertyWindow .ui-resizable-handle.ui-resizable-n {
+            height: 100% !important;
+            background: none !important;
+        }
+
+    /* toolbar */
+    body.mobile #toolBar {
+        transform: scale(1.74);
+    }
+
+    body.mobile .toolbar-tools {
+        opacity: 1 !important;
+    }
+
+    body.mobile #explosion-slider {
+        font-size: 16px;
+    }
+
+    /* viewer settings */
+    body.mobile #viewer-settings-dialog {
+        transform: scale(1.8);
+    }
+
+    body.mobile .ui-bcf-input input,
+    body.mobile .ui-bcf-topic textarea {
+        font-size: 200%;
+        max-width: 100%;
+    }
+
+    body.mobile .ui-bcf-input button,
+    body.mobile .ui-bcf-topic button {
+        font-size: 125%;
+        max-width: 50%;
+    }
