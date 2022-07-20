@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="/stylesheets/ViewerSettings.css" />
   <link rel="stylesheet" href="/stylesheets/jquery.minicolors.css" />
   <link rel="stylesheet" href="/stylesheets/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/stylesheets/drop-down.css"/>
 
   <script type="text/javascript" src="/javascripts/communicator_scripts/jquery-3.3.1.min.js"></script>
 
@@ -50,9 +51,12 @@
   <script type="text/javascript"
     src="/javascripts/communicator_scripts/communicator_server_integration.js?v=2022.1.2"></script>
   <script type="text/javascript" src="/javascripts/communicator_scripts/sample.js?v=2022.1.2"></script>
+  <script type="text/javascript" src="/javascripts/custom.js"></script>
 
   <script type="module">
     import { getContainerEndpoint } from "/javascripts/common/get_endpoint.js";
+
+    var model_name = Sample._getParameterByName("instance");
 
     getContainerEndpoint().then((data) => {
       if (data == "error: 429 - Too many requests") {
@@ -62,9 +66,7 @@
       const viewer = new Communicator.WebViewer({
         containerId: "viewer-container",
         endpointUri: data.endpoint_uri,
-        // model: "HotelFloorplan",
-        model: "Clinic_Architectural-Second_Floor_Plan",
-        // endpointUri: "data/Clinic_Architectural Second Floor Plan.scs",
+        model: model_name,
         enginePath: HWP_ENGINE_PATH,
       });
 
@@ -72,6 +74,15 @@
         containerId: "content",
         screenConfiguration: Sample.screenConfiguration,
       };
+
+      viewer.setCallbacks({
+          sceneReady: function (camera) {
+          },
+          modelStructureReady: function () {
+            $(".dropdown").css("display", "inline-block");
+            // $(".spinner").css("display", "none");
+          },
+        });
 
       const ui = new Communicator.Ui.Desktop.DesktopUi(viewer, uiConfig);
 
@@ -89,8 +100,29 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB9P4KS" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
   <div id="content">
     <div id="viewer-container"></div>
+
+    <div class="dropdown">
+      <button class="drop-button">Models</button>
+      <div class="dropdown-content">
+        <a href="/index.html?instance=HotelFloorplan" style="width: 90%; float: left">
+          <img src="/stylesheets/images/spinner.gif" alt="Landing Gear Main Shaft" style="float: left" />
+          <div class="dropdown-text" style="width: 50%; float: right">
+            Hotel Floorplan
+          </div>
+        </a>
+        <a href="/index.html?instance=Clinic_Architectural-Second_Floor_Plan" style="width: 90%; float: left">
+          <img src="/stylesheets/images/spinner.gif" alt="Landing Gear Main Shaft" style="float: left" />
+          <div class="dropdown-text" style="width: 50%; float: right">
+            Clinic Floor Plan
+          </div>
+        </a>
+      </div>
+    </div>
+
+
     <!-- Toolbar HTML-->
     <div id="toolBar">
       <div class="toolbar-tools">
@@ -711,6 +743,9 @@
         </div>
       </div>
     </div>
+
+
+
   </div>
 </body>
 
