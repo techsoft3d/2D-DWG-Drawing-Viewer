@@ -52,12 +52,12 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
         }; e.prototype.onMouseMove = function (c) {
             return __awaiter(this, void 0, void 0, function () {
                 var a,
-                b, d, g, l; return __generator(this, function (k) {
-                    switch (k.label) {
-                        case 0: if (null === this._activeMarkup) return [3, 1]; a = this._getDragPointOnAnchorPlane(c.getPosition()); b = void 0; b = null !== this._previousAnchorPlaneDragPoint && null !== a ? Communicator.Point3.subtract(a, this._previousAnchorPlaneDragPoint) : Communicator.Point3.zero(); d = this._activeMarkup.getTextBoxAnchor().add(b); this._activeMarkup.setTextBoxAnchor(d); this._previousAnchorPlaneDragPoint = a; this._viewer.markupManager.refreshMarkup(); c.setHandled(!0); return [3,
-                            3]; case 1: return [4, this._viewer.view.pickFromPoint(c.getPosition(), new Communicator.PickConfig)]; case 2: g = k.sent(), l = g.getNodeId(), l !== this._previousNodeId && (null != this._previousNodeId && this._viewer.model.setNodesHighlighted([this._previousNodeId], !1), null != l && this._viewer.model.setNodesHighlighted([l], !0)), this._previousNodeId = l, k.label = 3; case 3: return [2]
-                    }
-                })
+                    b, d, g, l; return __generator(this, function (k) {
+                        switch (k.label) {
+                            case 0: if (null === this._activeMarkup) return [3, 1]; a = this._getDragPointOnAnchorPlane(c.getPosition()); b = void 0; b = null !== this._previousAnchorPlaneDragPoint && null !== a ? Communicator.Point3.subtract(a, this._previousAnchorPlaneDragPoint) : Communicator.Point3.zero(); d = this._activeMarkup.getTextBoxAnchor().add(b); this._activeMarkup.setTextBoxAnchor(d); this._previousAnchorPlaneDragPoint = a; this._viewer.markupManager.refreshMarkup(); c.setHandled(!0); return [3,
+                                3]; case 1: return [4, this._viewer.view.pickFromPoint(c.getPosition(), new Communicator.PickConfig)]; case 2: g = k.sent(), l = g.getNodeId(), l !== this._previousNodeId && (null != this._previousNodeId && this._viewer.model.setNodesHighlighted([this._previousNodeId], !1), null != l && this._viewer.model.setNodesHighlighted([l], !0)), this._previousNodeId = l, k.label = 3; case 3: return [2]
+                        }
+                    })
             })
         }; e.prototype.onMouseUp = function (c) { this._previousAnchorPlaneDragPoint = this._activeMarkup = null }; e.prototype._startDraggingAnnotation = function (c,
             a) { this._activeMarkup = c; this._previousAnchorPlaneDragPoint = this._getDragPointOnAnchorPlane(a) }; e.prototype._selectAnnotation = function (c) { var a = this._viewer.markupManager.pickMarkupItem(c); return a ? (this._activeMarkup = a, this._previousAnchorPlaneDragPoint = this._getDragPointOnAnchorPlane(c), !0) : !1 }; e.prototype.onDeactivate = function () { null != this._previousNodeId && this._viewer.model.setNodesHighlighted([this._previousNodeId], !1); this._previousNodeId = null }; e.prototype._getDragPointOnAnchorPlane = function (c) {
@@ -80,7 +80,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
                 }; a.prototype._isMenuItemVisible = function () { var b = this._isItemVisible(this._activeItemId), d = this._isLayerVisibile(this._activeLayerName), a = this._isTypeVisible(this._activeType); return b || d || a }; a.prototype._isColorSet = function (b) {
                     return __awaiter(this, void 0, void 0, function () {
                         var d,
-                        a, c, k; return __generator(this, function (g) { switch (g.label) { case 0: d = this._colorPicker.getColor(), a = !0, c = 0, g.label = 1; case 1: return c < b.length ? [4, this._viewer.model.getNodeColorMap(b[c], e.ElementType.Faces)] : [3, 4]; case 2: k = g.sent(); if (0 === k.size) return [2, !1]; k.forEach(function (b) { b.equals(d) || (a = !1) }); g.label = 3; case 3: return ++c, [3, 1]; case 4: return [2, a] } })
+                            a, c, k; return __generator(this, function (g) { switch (g.label) { case 0: d = this._colorPicker.getColor(), a = !0, c = 0, g.label = 1; case 1: return c < b.length ? [4, this._viewer.model.getNodeColorMap(b[c], e.ElementType.Faces)] : [3, 4]; case 2: k = g.sent(); if (0 === k.size) return [2, !1]; k.forEach(function (b) { b.equals(d) || (a = !1) }); g.label = 3; case 3: return ++c, [3, 1]; case 4: return [2, a] } })
                     })
                 }; a.prototype._updateMenuItems = function () {
                     return __awaiter(this, void 0, void 0, function () {
@@ -149,10 +149,10 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
                         } this.appendSeparator(); this.appendItem("showall", "Show all", function () { return __awaiter(b, void 0, void 0, function () { return __generator(this, function (d) { switch (d.label) { case 0: return [4, this._isolateZoomHelper.showAll()]; case 1: return d.sent(), [2] } }) }) })
                     }; a.prototype.getContextItemIds = function (b, d,
                         a) {
-                            void 0 === a && (a = !0); var g = this._viewer.selectionManager, c = this._viewer.model, h = c.getAbsoluteRootNode(), f = []; if (b) { b = 0; for (var q = g.getResults(); b < q.length; b++) { var m = q[b].getNodeId(); c.isNodeLoaded(m) && (a || !a && m !== h) && f.push(m) } } if (null !== this._activeLayerName && (c = this._viewer.model.getLayerIdsFromName(this._activeLayerName), null !== c)) for (b = 0; b < c.length; b++)if (m = this._viewer.model.getNodesFromLayer(c[b]), null !== m) for (q = 0; q < m.length; q++) {
-                                var n = m[q], r = e.Selection.SelectionItem.create(n); g.contains(r) ||
-                                    f.push(n)
-                            } null !== this._activeType && (m = this._viewer.model.getNodesByGenericType(this._activeType), null !== m && m.forEach(function (d) { var b = e.Selection.SelectionItem.create(d); g.contains(b) || f.push(d) })); null !== this._activeItemId && (r = e.Selection.SelectionItem.create(this._activeItemId), c = null !== g.containsParent(r), b = -1 !== f.indexOf(this._activeItemId), !d || !a && (a || this._activeItemId === h || 0 !== f.length && (b || c)) || f.push(this._activeItemId)); return f
+                        void 0 === a && (a = !0); var g = this._viewer.selectionManager, c = this._viewer.model, h = c.getAbsoluteRootNode(), f = []; if (b) { b = 0; for (var q = g.getResults(); b < q.length; b++) { var m = q[b].getNodeId(); c.isNodeLoaded(m) && (a || !a && m !== h) && f.push(m) } } if (null !== this._activeLayerName && (c = this._viewer.model.getLayerIdsFromName(this._activeLayerName), null !== c)) for (b = 0; b < c.length; b++)if (m = this._viewer.model.getNodesFromLayer(c[b]), null !== m) for (q = 0; q < m.length; q++) {
+                            var n = m[q], r = e.Selection.SelectionItem.create(n); g.contains(r) ||
+                                f.push(n)
+                        } null !== this._activeType && (m = this._viewer.model.getNodesByGenericType(this._activeType), null !== m && m.forEach(function (d) { var b = e.Selection.SelectionItem.create(d); g.contains(b) || f.push(d) })); null !== this._activeItemId && (r = e.Selection.SelectionItem.create(this._activeItemId), c = null !== g.containsParent(r), b = -1 !== f.indexOf(this._activeItemId), !d || !a && (a || this._activeItemId === h || 0 !== f.length && (b || c)) || f.push(this._activeItemId)); return f
                     }; a.prototype.appendItem = function (b, d, a) {
                         var g = document.createElement("div");
                         g.classList.add("ui-contextmenu-item"); g.innerHTML = d; g.id = b; this._menuElement.appendChild(g); d = new h(a, g); return this._contextItemMap[b] = d
@@ -164,7 +164,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
                     }; a.prototype._isLayerVisibile = function (b) { if (null !== b && (b = this._viewer.model.getLayerIdsFromName(b), null !== b)) for (var d = 0; d < b.length; d++) { var a = this._viewer.model.getNodesFromLayer(b[d]); if (null !== a) for (var c = 0; c < a.length; c++)if (this._viewer.model.getNodeVisibility(a[c])) return !0 } return !1 }; a.prototype._isTypeVisible = function (b) {
                         var d = this, a = !1; null !== b && (b = this._viewer.model.getNodesByGenericType(b), null !== b && b.forEach(function (b) {
                             a =
-                            a || d._viewer.model.getNodeVisibility(b)
+                                a || d._viewer.model.getNodeVisibility(b)
                         })); return a
                     }; return a
             }(); m.ContextMenu = c
@@ -228,12 +228,12 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
             }; c.prototype.toggle = function (a) {
                 return __awaiter(this, void 0, void 0, function () {
                     var b,
-                    d; return __generator(this, function (g) {
-                        switch (g.label) {
-                            case 0: b = this._ensurePlaneInfo(a).status; switch (b) { case 0: return [3, 1]; case 1: return [3, 8]; case 2: return [3, 10] }return [3, 12]; case 1: if (3 !== a) return [3, 5]; d = this._viewer.selectionManager.getLast(); if (null === d || !d.isFaceSelection()) return [3, 4]; this._faceSelection = d; return [4, this._cuttingSections[a].clear()]; case 2: return g.sent(), this._setStatus(a, 1), [4, this.setCuttingPlaneVisibility(!0, a)]; case 3: g.sent(), g.label = 4; case 4: return [3, 7]; case 5: return this._setStatus(a,
-                                1), [4, this.setCuttingPlaneVisibility(!0, a)]; case 6: g.sent(), g.label = 7; case 7: return [3, 12]; case 8: return this._setStatus(a, 2), [4, this.setCuttingPlaneInverted(a)]; case 9: return g.sent(), [3, 12]; case 10: return this._setStatus(a, 0), [4, this.setCuttingPlaneVisibility(!1, a)]; case 11: return g.sent(), [3, 12]; case 12: return [2]
-                        }
-                    })
+                        d; return __generator(this, function (g) {
+                            switch (g.label) {
+                                case 0: b = this._ensurePlaneInfo(a).status; switch (b) { case 0: return [3, 1]; case 1: return [3, 8]; case 2: return [3, 10] }return [3, 12]; case 1: if (3 !== a) return [3, 5]; d = this._viewer.selectionManager.getLast(); if (null === d || !d.isFaceSelection()) return [3, 4]; this._faceSelection = d; return [4, this._cuttingSections[a].clear()]; case 2: return g.sent(), this._setStatus(a, 1), [4, this.setCuttingPlaneVisibility(!0, a)]; case 3: g.sent(), g.label = 4; case 4: return [3, 7]; case 5: return this._setStatus(a,
+                                    1), [4, this.setCuttingPlaneVisibility(!0, a)]; case 6: g.sent(), g.label = 7; case 7: return [3, 12]; case 8: return this._setStatus(a, 2), [4, this.setCuttingPlaneInverted(a)]; case 9: return g.sent(), [3, 12]; case 10: return this._setStatus(a, 0), [4, this.setCuttingPlaneVisibility(!1, a)]; case 11: return g.sent(), [3, 12]; case 12: return [2]
+                            }
+                        })
                 })
             }; c.prototype.getCount = function () { for (var a = 0, b = 0, d = this._cuttingSections; b < d.length; b++)a += d[b].getCount(); return a }; c.prototype.setCuttingPlaneVisibility = function (a, b) {
                 return __awaiter(this,
@@ -276,7 +276,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
             }; c.prototype._activatePlanes = function (a) { var b = []; a && !a[0] || b.push(this._activateSection(0)); a && !a[1] || b.push(this._activateSection(1)); a && !a[2] || b.push(this._activateSection(2)); a && !a[3] || b.push(this._activateSection(3)); return e.Util.waitForAll(b) }; c.prototype._getPlaneIndex = function (a) {
                 if (this._useIndividualCuttingSections) {
                     a =
-                    this._getCuttingSectionIndex(a); var b = this._cuttingSections[a]; if (b.getPlane(0)) return 0
+                        this._getCuttingSectionIndex(a); var b = this._cuttingSections[a]; if (b.getPlane(0)) return 0
                 } else { b = this._cuttingSections[0]; for (var d = b.getCount(), g = 0; g < d; g++) { var c = b.getPlane(g), k = void 0; this._faceSelection && (k = this._faceSelection.getFaceEntity().getNormal()); if (c && (c.normal.x && 0 === a || c.normal.y && 1 === a || c.normal.z && 2 === a || 3 === a && k && c.normal.equals(k))) return g } } return -1
             }; c.prototype._setSection = function (a) {
                 return __awaiter(this, void 0, void 0, function () {
@@ -299,7 +299,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
             }; c.prototype._restorePlanes = function (a) { return __awaiter(this, void 0, void 0, function () { return __generator(this, function (b) { switch (b.label) { case 0: return [4, Promise.all([this._restorePlane(0), this._restorePlane(1), this._restorePlane(2), this._restorePlane(3)])]; case 1: return b.sent(), [4, this._activatePlanes(a)]; case 2: return b.sent(), [2] } }) }) };
             c.prototype._storePlane = function (a) { var b = this._cuttingSections[this._getCuttingSectionIndex(a)], d = this._ensurePlaneInfo(a); d.plane = null; d.referenceGeometry = null; if (0 < b.getCount() && 0 !== d.status) { var g = this._getPlaneIndex(a); a = b.getPlane(g); b = b.getReferenceGeometry(g); d.plane = a; d.referenceGeometry = b } }; c.prototype._storePlanes = function () { this._storePlane(0); this._storePlane(1); this._storePlane(2); this._storePlane(3) }; c.prototype._generateReferenceGeometry = function (a) {
                 var b = this._viewer.cuttingManager,
-                d = []; if (3 === a) this._faceSelection && (a = this._faceSelection.getFaceEntity().getNormal(), d = this._faceSelection.getPosition(), d = b.createReferenceGeometryFromFaceNormal(a, d, this._modelBounding)); else { var g = void 0; switch (a) { case 0: g = e.Axis.X; break; case 1: g = e.Axis.Y; break; case 2: g = e.Axis.Z }void 0 !== g && (d = b.createReferenceGeometryFromAxis(g, this._modelBounding)) } return d
+                    d = []; if (3 === a) this._faceSelection && (a = this._faceSelection.getFaceEntity().getNormal(), d = this._faceSelection.getPosition(), d = b.createReferenceGeometryFromFaceNormal(a, d, this._modelBounding)); else { var g = void 0; switch (a) { case 0: g = e.Axis.X; break; case 1: g = e.Axis.Y; break; case 2: g = e.Axis.Z }void 0 !== g && (d = b.createReferenceGeometryFromAxis(g, this._modelBounding)) } return d
             }; c.prototype._generateCuttingPlane = function (a) {
                 var b = new e.Plane; switch (a) {
                     case 0: b.normal.set(1, 0, 0); b.d = -this._modelBounding.max.x; break;
@@ -315,7 +315,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
             var a = this; this._camera = null; this._deselectOnZoom = this._deselectOnIsolate = !0; this._isolateStatus = !1; this._viewer = c; this._noteTextManager = this._viewer.noteTextManager; this._viewer.setCallbacks({
                 modelSwitched: function () {
                     a._camera =
-                    null
+                        null
                 }
             })
         } h.prototype._setCamera = function (c) { null === this._camera && (this._camera = c) }; h.prototype.setDeselectOnIsolate = function (c) { this._deselectOnIsolate = c }; h.prototype.getIsolateStatus = function () { return this._isolateStatus }; h.prototype.isolateNodes = function (c, a) {
@@ -331,7 +331,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
     var f = function () { return function (e, c, a, b) { this.progress = this.direction = 0; this.id = e; this.color1 = c.copy(); this.color2 = a.copy(); this.duration = b } }(), m = function () {
         function e(c) { this._pulseInfoMap = {}; this._defaultColor1 = Communicator.Color.red(); this._defaultColor2 = new Communicator.Color(175, 0, 0); this._defaultPulseTime = 1E3; this._viewer = c } e.prototype.start = function () { var c = this; setTimeout(function () { c.update() }, 30) }; e.prototype.deletePulse = function (c) {
             this._pulseInfoMap.hasOwnProperty(c.toString()) &&
-            (this._viewer.model.unsetNodesFaceColor([c]), delete this._pulseInfoMap[c])
+                (this._viewer.model.unsetNodesFaceColor([c]), delete this._pulseInfoMap[c])
         }; e.prototype.add = function (c, a, b, d) { this.deletePulse(c); a = new f(c, a, b, d); this._pulseInfoMap[c] = a }; e.prototype.update = function () {
             null == this._previousTime && (this._previousTime = Date.now()); for (var c = Date.now(), a = c - this._previousTime, b = {}, d = !1, g = 0, l = Object.keys(this._pulseInfoMap); g < l.length; g++) {
                 var k = this._pulseInfoMap[l[g]]; d = !0; k.progress = Math.min(k.progress + a, k.duration); var e = k.progress / k.duration; if (0 === k.direction) {
@@ -402,7 +402,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
                     "#cuttingplane-reset"; this._selectedClass = "selected"; this._disabledClass = "disabled"; this._invertedClass = "inverted"; this._submenuHeightOffset = 10; this._viewOrientationDuration = 500; this._activeSubmenu = null; this._actionsNullary = new Map; this._actionsBoolean = new Map; this._isInitialized = !1; this._viewer = c; this._noteTextManager = this._viewer.noteTextManager; this._screenConfiguration = b; this._cuttingPlaneController = a; this._viewerSettings = new f.Desktop.ViewerSettings(c); this._viewer.setCallbacks({
                         selectionArray: function (b) {
                             0 <
-                            b.length ? (b = b[b.length - 1].getSelection(), null !== b && b.isFaceSelection() && ($(d._cuttingPlaneFaceSelector).removeClass(d._disabledClass), $("#view-face").removeClass(d._disabledClass))) : ($(d._cuttingPlaneFaceSelector).addClass(d._disabledClass), $("#view-face").addClass(d._disabledClass))
+                                b.length ? (b = b[b.length - 1].getSelection(), null !== b && b.isFaceSelection() && ($(d._cuttingPlaneFaceSelector).removeClass(d._disabledClass), $("#view-face").removeClass(d._disabledClass))) : ($(d._cuttingPlaneFaceSelector).addClass(d._disabledClass), $("#view-face").addClass(d._disabledClass))
                         }, cuttingSectionsLoaded: function () { return d._cuttingPlaneController.onSectionsChanged().then(function () { d._updateCuttingPlaneIcons() }) }
                     })
             } h.prototype.init = function () {
@@ -439,7 +439,7 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
             }; h.prototype._submenuIconClick = function (c) { c = $(c); c.hasClass(this._disabledClass) || (c = this._activateSubmenuItem(c), this._hideActiveSubmenu(), this._performNullaryAction(c)) }; h.prototype._initIcons = function () { $(this._toolbarSelector).find(".hoops-tool").each(function () { var c = $(this); c.find(".tool-icon").addClass(c.data("operatorclass").toString()) }); $(this._toolbarSelector).find(".submenu-icon").each(function () { var c = $(this); c.addClass(c.data("operatorclass").toString()) }) };
             h.prototype._removeNonApplicableIcons = function () { this._screenConfiguration === e.ScreenConfiguration.Mobile && $("#snapshot-button").remove() }; h.prototype.setSubmenuEnabled = function (c, a) { c = $("#" + c); var b = $("#" + c.data("submenu")); a ? (c.find(".smarrow").show(), b.removeClass(this._disabledClass)) : (c.find(".smarrow").hide(), b.addClass(this._disabledClass)) }; h.prototype._performNullaryAction = function (c) { (c = this._actionsNullary.get(c)) && c() }; h.prototype._performBooleanAction = function (c, a) {
                 (c = this._actionsBoolean.get(c)) &&
-                c(a)
+                    c(a)
             }; h.prototype._renderModeClick = function (c) { var a = this._viewer.view; switch (c) { case "toolbar-shaded": a.setDrawMode(e.DrawMode.Shaded); break; case "toolbar-wireframe": a.setDrawMode(e.DrawMode.Wireframe); break; case "toolbar-hidden-line": a.setDrawMode(e.DrawMode.HiddenLine); break; case "toolbar-xray": a.setDrawMode(e.DrawMode.XRay); break; default: case "toolbar-wireframeshaded": a.setDrawMode(e.DrawMode.WireframeOnShaded) } }; h.prototype._initSnapshot = function () {
                 $("#snapshot-dialog-cancel-button").button().on("click",
                     function () { $("#snapshot-dialog").hide() })
@@ -576,17 +576,17 @@ var __extends = this && this.__extends || function () { var e = function (f, m) 
                     this._browserWindow.appendChild(this._treePropertyContainer); this._relationshipTree = this._createRelationshipTree(this._relationshipsWindow); $(this._propertyWindow).resizable({ resize: function () { b.onResizeElement(b._viewer.view.getCanvasSize().y, b._relationshipsWindow) }, handles: "n" }); $(this._relationshipsWindow).resizable({ resize: function () { b.onResizeElement(b._viewer.view.getCanvasSize().y, b._content) }, handles: "n" })
                 }; a.prototype._onMinimizeButtonClick = function () {
                     this._minimized ? this._maximizeModelBrowser() :
-                    this._minimizeModelBrowser()
+                        this._minimizeModelBrowser()
                 }; a.prototype._maximizeModelBrowser = function () { var b = this; this._minimized = !1; this.freeze(!1); var d = jQuery(this._minimizeButton); d.addClass("maximized"); d.removeClass("minimized"); jQuery(this._content).slideDown({ progress: function () { b._onSlide(); $("#modelBrowserWindow").removeClass("ui-modelbrowser-small") }, complete: function () { $(b._browserWindow).children(".ui-resizable-handle").show() }, duration: f.DefaultUiTransitionDuration }); this._refreshBrowserScroll() }; a.prototype._minimizeModelBrowser =
                     function () { var b = this; this._minimized = !0; this.freeze(!0); var d = jQuery(this._minimizeButton); d.removeClass("maximized"); d.addClass("minimized"); jQuery(this._content).slideUp({ progress: function () { b._onSlide(); $("#modelBrowserWindow").addClass("ui-modelbrowser-small") }, complete: function () { $(b._browserWindow).children(".ui-resizable-handle").hide() }, duration: f.DefaultUiTransitionDuration }); this._refreshBrowserScroll() }; a.prototype.onResize = function (b) {
                         var d = $(this._header).outerHeight(), a = $(this._propertyWindow).outerHeight(),
-                        c = $(this._relationshipsWindow).outerHeight(); void 0 !== d && void 0 !== a && void 0 !== c && (this._treePropertyContainer.style.height = b - d - 2 * this._browserWindowMargin + "px", d = b - d - a - c - 2 * this._browserWindowMargin, this._browserWindow.style.height = b - 2 * this._browserWindowMargin + "px", this._content.style.height = d + "px", this._refreshBrowserScroll())
+                            c = $(this._relationshipsWindow).outerHeight(); void 0 !== d && void 0 !== a && void 0 !== c && (this._treePropertyContainer.style.height = b - d - 2 * this._browserWindowMargin + "px", d = b - d - a - c - 2 * this._browserWindowMargin, this._browserWindow.style.height = b - 2 * this._browserWindowMargin + "px", this._content.style.height = d + "px", this._refreshBrowserScroll())
                     }; a.prototype.onResizeElement = function (b, d) {
                         var a = $(this._header).outerHeight(), c = $(this._content).outerHeight(), k = $(this._propertyWindow).outerHeight(), e = $(this._relationshipsWindow).outerHeight();
                         $(d).hasClass("hidden") && (d = this._content); var f = $(d).outerHeight(), h = $(d).height(); void 0 !== a && void 0 !== k && void 0 !== e && void 0 !== c && void 0 !== f && void 0 !== h && (this._treePropertyContainer.style.height = b - a - 2 * this._browserWindowMargin + "px", a = b - a - k - e - c + f - 2 * this._browserWindowMargin - (f - h), 0 > a && (a = 0), this._browserWindow.style.height = b - 2 * this._browserWindowMargin + "px", d.style.height = a + "px", this._refreshBrowserScroll())
                     }; a.prototype._onSlide = function () {
                         var b = $(this._header).outerHeight(), d = $(this._content).outerHeight(),
-                        a = $(this._propertyWindow).outerHeight(), c = $(this._relationshipsWindow).outerHeight(); void 0 !== b && void 0 !== d && void 0 !== a && void 0 !== c && (this._browserWindow.style.height = d + b + a + c + "px")
+                            a = $(this._propertyWindow).outerHeight(), c = $(this._relationshipsWindow).outerHeight(); void 0 !== b && void 0 !== d && void 0 !== a && void 0 !== c && (this._browserWindow.style.height = d + b + a + c + "px")
                     }; a.prototype._onModelStructureParsingBegin = function () { $("#modelBrowserLoadingDiv").html("Parsing...") }; a.prototype._onModelStructureLoadBegin = function () { $("#" + this._elementId).show() }; a.prototype._onAssemblyTreeReady = function () {
                         $("#modelBrowserLoadingDiv").remove(); this._showTree(h.Model); var b = $(this._elementId).height();
                         if (void 0 !== b) this.onResize(b)
@@ -611,7 +611,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                         }, sheetActivated: function () { a._configureUi(h.Drawing) }, sheetDeactivated: function () { a._configureUi(a._modelType) }, modelLoadFailure: function (d, b) { if (!a._suppressMissingModelDialog) { var c = new f.UiDialog("content"); c.setTitle("Model Load Error"); var g = "Unable to load "; c.setText((d ? g + ("'" + d + "'") : g + "model") + (": " + b)); c.show() } }, modelLoadBegin: function () { a._suppressMissingModelDialog = !1 }, missingModel: function (d) {
                             if (!a._suppressMissingModelDialog) {
                                 a._suppressMissingModelDialog =
-                                !0; var b = new f.UiDialog("content"); b.setTitle("Missing Model Error"); b.setText("Unable to load '" + (d + "'")); b.show()
+                                    !0; var b = new f.UiDialog("content"); b.setTitle("Missing Model Error"); b.setText("Unable to load '" + (d + "'")); b.show()
                             }
                         }, webGlContextLost: function () { var d = new f.UiDialog("content"); d.setTitle("Fatal Error"); d.setText("WebGL context lost. Rendering cannot continue."); d.show() }, XHRonloadend: function (d, a, b) { 404 === a && (d = new f.UiDialog("content"), d.setTitle("404 Error"), d.setText("Unable to load " + b), d.show()) }, incrementalSelectionBatchBegin: function () { a.freezeModelBrowser(!0); a.enableModelBrowserPartSelection(!1) },
                         incrementalSelectionBatchEnd: function () { a.freezeModelBrowser(!1); a.enableModelBrowserPartSelection(!0) }, incrementalSelectionEnd: function () { null !== a._modelBrowser && a._modelBrowser.updateSelection(null) }
@@ -621,14 +621,14 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                         a === e.FileType.Ifc || a === e.FileType.Revit) ? !0 : !1
                 }; a.prototype._configureUi = function (a) { if (this._uiModelType !== a) { this._uiModelType = a; var d = this._viewer.view.getAxisTriad(), b = this._viewer.view.getNavCube(); a === h.Drawing ? (d.disable(), b.disable(), this._viewer.view.setDrawMode(e.DrawMode.WireframeOnShaded)) : (d.enable(), a === h.Bim ? this._viewer.view.setBackfacesVisible(!0) : b.enable()); this._configureToolbar(a); this._configureModelBrowser(a) } }; a.prototype._configureToolbar = function (a) {
                     null !== this._toolbar &&
-                    (a === h.Drawing ? ($("#cuttingplane-button").hide(), $("#cuttingplane-submenu").hide(), $("#explode-button").hide(), $("#explode-slider").hide(), $("#explode-submenu").hide(), $("#view-button").hide(), $("#view-submenu").hide(), $("#camera-button").hide(), $("#camera-submenu").hide(), $("#tool_separator_4").hide(), $("#tool_separator_1").hide(), $("#edgeface-button").hide(), $("#edgeface-submenu").hide()) : ($("#cuttingplane-button").show(), $("#explode-button").show(), $("#view-button").show(), $("#camera-button").show(),
-                        $("#tool_separator_4").show(), $("#tool_separator_1").show(), $("#edgeface-button").show()), this._toolbar.reposition())
+                        (a === h.Drawing ? ($("#cuttingplane-button").hide(), $("#cuttingplane-submenu").hide(), $("#explode-button").hide(), $("#explode-slider").hide(), $("#explode-submenu").hide(), $("#view-button").hide(), $("#view-submenu").hide(), $("#camera-button").hide(), $("#camera-submenu").hide(), $("#tool_separator_4").hide(), $("#tool_separator_1").hide(), $("#edgeface-button").hide(), $("#edgeface-submenu").hide()) : ($("#cuttingplane-button").show(), $("#explode-button").show(), $("#view-button").show(), $("#camera-button").show(),
+                            $("#tool_separator_4").show(), $("#tool_separator_1").show(), $("#edgeface-button").show()), this._toolbar.reposition())
                 }; a.prototype._configureModelBrowser = function (a) { null !== this._modelBrowser && (a === h.Drawing ? $(".ui-modeltree").addClass("drawing") : $(".ui-modeltree").removeClass("drawing")) }; a.prototype._onSceneReady = function () {
                     var b = this; this._viewer.focusInput(!0); var d = this._viewer.selectionManager; d.setNodeSelectionColor(a._defaultPartSelectionColor); d.setNodeSelectionOutlineColor(a._defaultPartSelectionOutlineColor);
                     d = this._viewer.view; d.setXRayColor(e.ElementType.Faces, a._defaultXRayColor); d.setXRayColor(e.ElementType.Lines, a._defaultXRayColor); d.setXRayColor(e.ElementType.Points, a._defaultXRayColor); d.setBackgroundColor(a._defaultBackgroundColor, a._defaultBackgroundColor); this._viewer.getViewElement().addEventListener("mouseenter", function () { b._viewer.focusInput(!0) })
                 }; a.prototype.setDeselectOnIsolate = function (a) { this._isolateZoomHelper.setDeselectOnIsolate(a) }; a.prototype.freezeModelBrowser = function (a) {
                     null !==
-                    this._modelBrowser && this._modelBrowser.freeze(a)
+                        this._modelBrowser && this._modelBrowser.freeze(a)
                 }; a.prototype.enableModelBrowserPartSelection = function (a) { null !== this._modelBrowser && this._modelBrowser.enablePartSelection(a) }; a.prototype._getContextMenu = function () { return this._contextMenu }; a.prototype._getModelBrowser = function () { return this._modelBrowser }; a.prototype._getToolbar = function () { return this._toolbar }; a._defaultBackgroundColor = e.Color.white(); a._defaultPartSelectionColor = e.Color.createFromFloat(0, .8, 0); a._defaultPartSelectionOutlineColor =
                     e.Color.createFromFloat(0, .8, 0); a._defaultXRayColor = e.Color.createFromFloat(0, .9, 0); return a
             }(); m.DesktopUi = c
@@ -716,7 +716,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                     this._initElements()
                 } a.prototype.show = function () { var a = this._updateSettings(); document.body.classList.contains("mobile") && this._scaleForMobile(); f.centerWindow(this._viewerSettingsSelector, this._viewer.view.getCanvasSize()); $("#" + this._viewerSettingsSelector).show(); return a }; a.prototype.hide = function () { $("#" + this._viewerSettingsSelector).hide() }; a.prototype._scaleForMobile = function () {
                     var a = $("#" + this._viewerSettingsSelector), d = $("#" + this._viewerSettingsSelector + " .hoops-ui-window-body"), c = this._viewer.view.getCanvasSize(),
-                    l = a.width(); void 0 !== l && 1.8 * l > c.x && d.css("width", c.x / 1.8); l = a.height(); if (void 0 !== l && 1.8 * l > c.y) { a.show(); l = $("#" + this._viewerSettingsSelector + " .hoops-ui-window-header").get(0).offsetHeight; var k = $("#" + this._viewerSettingsSelector + " .hoops-ui-window-footer").get(0).offsetHeight; a.hide(); d.css("height", c.y / 1.8 - 1.4 * (l + k)) }
+                        l = a.width(); void 0 !== l && 1.8 * l > c.x && d.css("width", c.x / 1.8); l = a.height(); if (void 0 !== l && 1.8 * l > c.y) { a.show(); l = $("#" + this._viewerSettingsSelector + " .hoops-ui-window-header").get(0).offsetHeight; var k = $("#" + this._viewerSettingsSelector + " .hoops-ui-window-footer").get(0).offsetHeight; a.hide(); d.css("height", c.y / 1.8 - 1.4 * (l + k)) }
                 }; a.prototype._initElements = function () {
                     var a = this; this._walkKeyIdsMap.set(e.WalkDirection.Up, "walk-key-up"); this._walkKeyIdsMap.set(e.WalkDirection.Down, "walk-key-down"); this._walkKeyIdsMap.set(e.WalkDirection.Left,
                         "walk-key-left"); this._walkKeyIdsMap.set(e.WalkDirection.Right, "walk-key-right"); this._walkKeyIdsMap.set(e.WalkDirection.Forward, "walk-key-forward"); this._walkKeyIdsMap.set(e.WalkDirection.Backward, "walk-key-backward"); this._walkKeyIdsMap.set(e.WalkDirection.TiltUp, "walk-key-tilt-up"); this._walkKeyIdsMap.set(e.WalkDirection.TiltDown, "walk-key-tilt-down"); this._walkKeyIdsMap.set(e.WalkDirection.RotateLeft, "walk-key-rotate-left"); this._walkKeyIdsMap.set(e.WalkDirection.RotateRight, "walk-key-rotate-right");
@@ -760,7 +760,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                         this._splatRenderingPointSizeUnit = parseInt(f.getValueAsString("#settings-splat-rendering-point-size-unit"), 10), d.setPointSize(this._splatRenderingSize, this._splatRenderingPointSizeUnit)) : (this._splatRenderingEnabled = !1, d.setPointSize(1, e.PointSizeUnit.ScreenPixels)); d.setEyeDomeLightingEnabled($("#settings-eye-dome-lighting-enabled").prop("checked")); a.push(this._applyDrawingSettings()); a.push(this._applyFloorplanSettings()); return e.Util.waitForAll(a)
                 }; a.prototype._applyWalkKeyText = function (a, d) {
                     d <
-                    e.KeyCode.a || d > e.KeyCode.z || (a = this._walkKeyIdsMap.get(a), d = e.KeyCode[d].toUpperCase(), $("#" + a).html(d))
+                        e.KeyCode.a || d > e.KeyCode.z || (a = this._walkKeyIdsMap.get(a), d = e.KeyCode[d].toUpperCase(), $("#" + a).html(d))
                 }; a.prototype._applyWalkSettings = function () {
                     return __awaiter(this, void 0, void 0, function () {
                         var a, d, c, l, k, h, m, q, p, n, r, v, w = this; return __generator(this, function (b) {
@@ -781,7 +781,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                         d); this._updateKeyboardWalkModeStyle(c)
                 }; a.prototype._updateWalkSettings = function () { return __awaiter(this, void 0, void 0, function () { var a, d, c; return __generator(this, function (b) { switch (b.label) { case 0: return a = this._viewer.operatorManager, d = a.getOperator(e.OperatorId.KeyboardWalk), c = d.getWalkSpeed(), 0 !== c ? [3, 2] : [4, d.resetDefaultWalkSpeeds()]; case 1: b.sent(), b.label = 2; case 2: return this._updateWalkSettingsHelper(), [2] } }) }) }; a.prototype._updateDrawingSettings = function () {
                     var a = this._viewer.sheetManager.getSheetBackgroundColor(),
-                    d = this._viewer.sheetManager.getSheetColor(), c = this._viewer.sheetManager.getSheetShadowColor(), l = this._viewer.sheetManager.getBackgroundSheetEnabled(); $("#settings-drawing-background").minicolors("value", f.rgbStringFromColor(a)); $("#settings-drawing-sheet").minicolors("value", f.rgbStringFromColor(d)); $("#settings-drawing-sheet-shadow").minicolors("value", f.rgbStringFromColor(c)); $("#settings-drawing-background-enabled").prop("checked", l)
+                        d = this._viewer.sheetManager.getSheetColor(), c = this._viewer.sheetManager.getSheetShadowColor(), l = this._viewer.sheetManager.getBackgroundSheetEnabled(); $("#settings-drawing-background").minicolors("value", f.rgbStringFromColor(a)); $("#settings-drawing-sheet").minicolors("value", f.rgbStringFromColor(d)); $("#settings-drawing-sheet-shadow").minicolors("value", f.rgbStringFromColor(c)); $("#settings-drawing-background-enabled").prop("checked", l)
                 }; a.prototype._applyDrawingSettings = function () {
                     return __awaiter(this,
                         void 0, void 0, function () {
@@ -887,7 +887,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                 var b = this, d = document.createElement("button"); d.textContent = "Edit"; d.onclick = function () {
                     if ("true" === c.contentEditable) {
                         c.contentEditable =
-                        "false"; d.textContent = "Edit"; var g = c.textContent; null !== g && b._setCommentText(a, g)
+                            "false"; d.textContent = "Edit"; var g = c.textContent; null !== g && b._setCommentText(a, g)
                     } else c.contentEditable = "true", d.textContent = "Save"
                 }; return d
             }; f.prototype._buildComment = function (c, a) {
@@ -953,7 +953,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                         return __awaiter(a, void 0, void 0, function () {
                             return __generator(this, function (a) {
                                 d ||
-                                this._updateCadViews(); return [2]
+                                    this._updateCadViews(); return [2]
                             })
                         })
                     }, subtreeLoaded: function () { a._updateCadViews() }, modelSwitched: function () { a._modelSwitched() }, sheetActivated: function () { if (a._viewer.model.isDrawing()) { if (null != a._lastSelectedhtmlId) { var b = document.getElementById(a._lastSelectedhtmlId); null !== b && b.classList.remove("selected") } a.hideTab() } }, sheetDeactivated: function () { a._viewer.model.isDrawing() && a.showTab() }, cadViewCreated: function (b, d) { var c = new Map; c.set(b, d); a._addCadViews(c) }
@@ -966,10 +966,10 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                 var b = this; if (0 !== a.size) {
                     this._viewFolderCreated || (this._tree.appendTopLevelElement("Views", this._internalId, "viewfolder", !0), this._viewFolderCreated = !0); var d = this._viewer.model, c = !0 === this._viewer.getCreationParameters().enableShatteredModelUiViews; a.forEach(function (a, g) {
                         b._cadViewIds.has(g) || !c && d.isWithinExternalModel(g) ||
-                        d.isAnnotationView(g) || (b._cadViewIds.add(g), b._tree.addChild(a, b._cadViewId(g), b._internalId, "view", !1, f.Desktop.Tree.CadView))
+                            d.isAnnotationView(g) || (b._cadViewIds.add(g), b._tree.addChild(a, b._cadViewId(g), b._internalId, "view", !1, f.Desktop.Tree.CadView))
                     }); a.forEach(function (a, g) { b._cadViewIds.has(g) || !c && d.isWithinExternalModel(g) || !d.isAnnotationView(g) || null === document.getElementById(b._internalId + b._annotationViewsString) && b._tree.addChild(b._annotationViewsLabel, b._internalId + b._annotationViewsString, b._internalId, "viewfolder", !0, f.Desktop.Tree.CadView) }); a.forEach(function (a, g) {
                         b._cadViewIds.has(g) || !c && d.isWithinExternalModel(g) ||
-                        !d.isAnnotationView(g) || (b._cadViewIds.add(g), a = a.split("# Annotation View")[0], b._tree.addChild(a, b._cadViewId(g), b._internalId + b._annotationViewsString, "view", !1, f.Desktop.Tree.CadView))
+                            !d.isAnnotationView(g) || (b._cadViewIds.add(g), a = a.split("# Annotation View")[0], b._tree.addChild(a, b._cadViewId(g), b._internalId + b._annotationViewsString, "view", !1, f.Desktop.Tree.CadView))
                     })
                 }
             }; c.prototype._onTreeSelectItem = function (a) {
@@ -1036,12 +1036,12 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
             }; c.prototype._onTreeSelectItem = function (a) { return __awaiter(this, void 0, void 0, function () { var b, d; return __generator(this, function (c) { switch (c.label) { case 0: b = document.getElementById(a); if (null === b) return [2]; d = this._splitHtmlId(a); return d[0] !== this._internalId ? [3, 2] : [4, this._setFilter(parseInt(d[1], 10))]; case 1: c.sent(), c.label = 2; case 2: return [2] } }) }) }; c.prototype._setFilter = function (a) {
                 return __awaiter(this, void 0, void 0, function () {
                     var b,
-                    d, c; return __generator(this, function (g) {
-                        switch (g.label) {
-                            case 0: return [4, this._viewer.model]; case 1: b = g.sent(); d = b.getNodesFromFiltersId([a]); if (null === d) return [3, 10]; c = []; d.nodeIds.forEach(function (a) { c.push(a) }); return [4, this._viewer.pauseRendering()]; case 2: return g.sent(), [4, b.reset()]; case 3: return g.sent(), d.isInclusive ? [4, b.setNodesVisibility([b.getAbsoluteRootNode()], !1)] : [3, 6]; case 4: return g.sent(), [4, b.setNodesVisibility(c, !0)]; case 5: return g.sent(), [3, 8]; case 6: return [4, b.setNodesVisibility(c,
-                                !1)]; case 7: g.sent(), g.label = 8; case 8: return [4, this._viewer.resumeRendering()]; case 9: g.sent(), g.label = 10; case 10: return [2]
-                        }
-                    })
+                        d, c; return __generator(this, function (g) {
+                            switch (g.label) {
+                                case 0: return [4, this._viewer.model]; case 1: b = g.sent(); d = b.getNodesFromFiltersId([a]); if (null === d) return [3, 10]; c = []; d.nodeIds.forEach(function (a) { c.push(a) }); return [4, this._viewer.pauseRendering()]; case 2: return g.sent(), [4, b.reset()]; case 3: return g.sent(), d.isInclusive ? [4, b.setNodesVisibility([b.getAbsoluteRootNode()], !1)] : [3, 6]; case 4: return g.sent(), [4, b.setNodesVisibility(c, !0)]; case 5: return g.sent(), [3, 8]; case 6: return [4, b.setNodesVisibility(c,
+                                    !1)]; case 7: g.sent(), g.label = 8; case 8: return [4, this._viewer.resumeRendering()]; case 9: g.sent(), g.label = 10; case 10: return [2]
+                            }
+                        })
                 })
             }; c.prototype._onNewModel = function () { var a = this; this._tree.clear(); var b = this._viewer.model.getFilters(); b.forEach(function (d, b) { a._tree.appendTopLevelElement(d, a.getFilterId(b), "assembly", !1) }); 0 < b.size ? this.showTab() : this.hideTab() }; c.prototype.getFilterId = function (a) { return this._internalId + e.ViewTree.separator + a }; return c
         }(e.ViewTree); e.FiltersTree = f
@@ -1126,22 +1126,22 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                 }; c.prototype._createContainerNodes = function (a, b) { for (var d = 1, c = this._maxNodeChildrenSize, e = 0; !(this._tree.addChild("Child Nodes " + d + " - " + Math.min(c, b.length), this._containerId(a, e), this._partId(a), "container", !0, f.Desktop.Tree.Model), d += this._maxNodeChildrenSize, ++e, c >= b.length);)c += this._maxNodeChildrenSize }; c.prototype._loadAssemblyNodeChildren =
                     function (a) { var b = this._viewer.model.getNodeChildren(a); b.length > this._maxNodeChildrenSize ? this._createContainerNodes(a, b) : (a = this._partId(a), this._processNodeChildren(b, a)) }; c.prototype._loadContainerChildren = function (a) { var b = this._viewer.model, d = this._splitHtmlId(a); d = this._splitContainerId(d[1]); b = b.getNodeChildren(parseInt(d[0], 10)); d = this._maxNodeChildrenSize * parseInt(d[1], 10); b = b.slice(d, d + this._maxNodeChildrenSize); this._processNodeChildren(b, a) }; c.prototype._processNodeChildren = function (a,
                         b) {
-                            for (var d = this, c = this._viewer.model, l = null, k = 0; k < a.length; k++) {
-                                var h = a[k], m = c.getNodeName(h), q = b, p = "assembly", n = !1; switch (c.getNodeType(h)) { case e.NodeType.Body: case e.NodeType.BodyInstance: p = "body"; break; case e.NodeType.Pmi: null === l && (l = this._tree.addChild("PMI", this._pmiPartId(h), b, "modelroot", !0, f.Desktop.Tree.Model)); null !== l && (q = l.id, p = "assembly"); break; case e.NodeType.DrawingSheet: this._viewer.sheetManager.isDrawingSheetActive() || (n = !0) }n || this._tree.addChild(m, this._partId(h), q, p, 0 < c.getNodeChildren(h).length,
-                                    f.Desktop.Tree.Model)
-                            } 0 < a.length && this._updateVisibilityStateTimer.set(50, function () { d._tree.getVisibilityControl().updateModelTreeVisibilityState() })
+                        for (var d = this, c = this._viewer.model, l = null, k = 0; k < a.length; k++) {
+                            var h = a[k], m = c.getNodeName(h), q = b, p = "assembly", n = !1; switch (c.getNodeType(h)) { case e.NodeType.Body: case e.NodeType.BodyInstance: p = "body"; break; case e.NodeType.Pmi: null === l && (l = this._tree.addChild("PMI", this._pmiPartId(h), b, "modelroot", !0, f.Desktop.Tree.Model)); null !== l && (q = l.id, p = "assembly"); break; case e.NodeType.DrawingSheet: this._viewer.sheetManager.isDrawingSheetActive() || (n = !0) }n || this._tree.addChild(m, this._partId(h), q, p, 0 < c.getNodeChildren(h).length,
+                                f.Desktop.Tree.Model)
+                        } 0 < a.length && this._updateVisibilityStateTimer.set(50, function () { d._tree.getVisibilityControl().updateModelTreeVisibilityState() })
                     }; c.prototype._loadNodeChildren = function (a) { var b = this._splitHtmlId(a); switch (b["" === b[0] ? 1 : 0]) { case "part": a = parseInt(b[1], 10); this._loadAssemblyNodeChildren(a); break; case "container": this._loadContainerChildren(a); break; case "markupviews": case "measurementitems": case "pmipart": break; default: console.assert(!1) } }; c.prototype._onTreeSelectItem = function (a,
                         b) {
-                            void 0 === b && (b = e.SelectionMode.Set); return __awaiter(this, void 0, void 0, function () {
-                                var d, c, e, f; return __generator(this, function (g) {
-                                    switch (g.label) {
-                                        case 0: d = document.getElementById(a); if (null === d) return [2]; "LI" === d.tagName && "markupviews" !== a ? d.classList.add("selected") : (c = document.getElementById("markupviews"), null !== c && c.classList.remove("selected")); 0 === a.lastIndexOf("pmi", 0) && d.classList.contains("ui-modeltree-item") && d.classList.remove("selected"); e = this._splitHtmlId(a); f = e[0]; switch (f) {
-                                            case "part": return [3,
-                                                1]; case "markupview": return [3, 2]; case "container": return [3, 4]
-                                        }return [3, 5]; case 1: return this._viewer.selectPart(parseInt(e[1], 10), b), [3, 5]; case 2: return [4, this._viewer.markupManager.activateMarkupViewWithPromise(e[1])]; case 3: return g.sent(), [3, 5]; case 4: return this._onContainerClick(e[1]), [3, 5]; case 5: return [2]
-                                    }
-                                })
+                        void 0 === b && (b = e.SelectionMode.Set); return __awaiter(this, void 0, void 0, function () {
+                            var d, c, e, f; return __generator(this, function (g) {
+                                switch (g.label) {
+                                    case 0: d = document.getElementById(a); if (null === d) return [2]; "LI" === d.tagName && "markupviews" !== a ? d.classList.add("selected") : (c = document.getElementById("markupviews"), null !== c && c.classList.remove("selected")); 0 === a.lastIndexOf("pmi", 0) && d.classList.contains("ui-modeltree-item") && d.classList.remove("selected"); e = this._splitHtmlId(a); f = e[0]; switch (f) {
+                                        case "part": return [3,
+                                            1]; case "markupview": return [3, 2]; case "container": return [3, 4]
+                                    }return [3, 5]; case 1: return this._viewer.selectPart(parseInt(e[1], 10), b), [3, 5]; case 2: return [4, this._viewer.markupManager.activateMarkupViewWithPromise(e[1])]; case 3: return g.sent(), [3, 5]; case 4: return this._onContainerClick(e[1]), [3, 5]; case 5: return [2]
+                                }
                             })
+                        })
                     }; c.prototype._onContainerClick = function (a) { }; c.prototype._onNewView = function (a) { this._createMarkupViewFolderIfNecessary(); this._addMarkupView(a) }; c.prototype._refreshMarkupViews = function () {
                         for (var a =
                             this._viewer.markupManager, b = 0, d = a.getMarkupViewKeys(); b < d.length; b++) { var c = a.getMarkupView(d[b]); null !== c && this._addMarkupView(c) }
@@ -1248,7 +1248,7 @@ var __assign = this && this.__assign || function () { __assign = Object.assign |
                             document.createElement("ul"); this._listRoot = document.createElement("ul"); this._init()
                 } a.prototype.setCreateVisibilityItems = function (a) { this._createVisibilityItems = a }; a.prototype.getElementId = function () { return this._elementId }; a.prototype.getRoot = function () { return this._listRoot }; a.prototype.getPartVisibilityRoot = function () { return this._partVisibilityRoot }; a.prototype.getVisibilityControl = function () { return this._visibilityControl }; a.prototype.registerCallback = function (a, b) {
                     this._callbacks.has(a) ||
-                    this._callbacks.set(a, []); this._callbacks.get(a).push(b)
+                        this._callbacks.set(a, []); this._callbacks.get(a).push(b)
                 }; a.prototype._triggerCallback = function (a) { for (var d = [], b = 1; b < arguments.length; b++)d[b - 1] = arguments[b]; if (b = this._callbacks.get(a)) for (var c = 0; c < b.length; c++)b[c].apply(null, d) }; a.prototype.deleteNode = function (a) { a = "#" === a.charAt(0) ? a.slice(1) : a; jQuery("#" + a).remove(); jQuery("#visibility" + this._separator + a).remove() }; a.prototype._getTaggedId = function (a, b, c) {
                     return null !== c && "Annotation Views" === c && b === f.Desktop.Tree.CadView ? new h("Annotation Views") :
                         this._parseTaggedId(a)
