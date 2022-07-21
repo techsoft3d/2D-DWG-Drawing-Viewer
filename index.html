@@ -50,6 +50,10 @@
   <script type="text/javascript" src="javascripts/communicator_scripts/sample.js?v=2022.1.2"></script>
   <script type="text/javascript" src="javascripts/custom.js"></script>
 
+  <script>
+    var viewer = null;
+  </script>
+
   <script type="module">
     import { getContainerEndpoint } from "./javascripts/common/get_endpoint.js";
 
@@ -60,7 +64,7 @@
         window.location.replace("/error/too-many-requests");
       }
 
-      const viewer = new Communicator.WebViewer({
+      viewer = new Communicator.WebViewer({
         containerId: "viewer-container",
         endpointUri: data.endpoint_uri,
         model: model_name,
@@ -74,10 +78,12 @@
 
       viewer.setCallbacks({
           sceneReady: function (camera) {
+            if(model_name == "Clinic_Architectural_First_Floor_With_Perspective"){
+              document.getElementById("sheets").style.visibility = "hidden";
+            }
           },
           modelStructureReady: function () {
             $(".dropdown").css("display", "inline-block");
-            // $(".spinner").css("display", "none");
           },
         });
 
@@ -105,16 +111,55 @@
       <button class="drop-button">Models</button>
       <div class="dropdown-content">
         <a href="/2D-Hotel-Floor-Plan/index.html?instance=HotelFloorplan" style="width: 90%; float: left">
-          <img src="stylesheets/images/spinner.gif" alt="Landing Gear Main Shaft" style="float: left" />
+          <img src="stylesheets/images/Hotel Floorplan.PNG" alt="Landing Gear Main Shaft" style="float: left" />
           <div class="dropdown-text" style="width: 50%; float: right">
             Hotel Floorplan
           </div>
         </a>
-        <a href="/2D-Hotel-Floor-Plan/index.html?instance=Clinic_Architectural-Second_Floor_Plan" style="width: 90%; float: left">
-          <img src="stylesheets/images/spinner.gif" alt="Landing Gear Main Shaft" style="float: left" />
+
+        <a href="/2D-Hotel-Floor-Plan/index.html?instance=Clinic_Architectural_First_Floor_With_Perspective" style="width: 90%; float: left">
+          <img src="stylesheets/images/Clinic.PNG" alt="Landing Gear Main Shaft" style="float: left" />
           <div class="dropdown-text" style="width: 50%; float: right">
             Clinic Floor Plan
           </div>
+        </a>
+
+        <a href="/2D-Hotel-Floor-Plan/index.html?instance=Chieasa_Dives" style="width: 90%; float: left">
+          <img src="stylesheets/images/Chieasa Dives.png" alt="Landing Gear Main Shaft" style="float: left" />
+          <div class="dropdown-text" style="width: 50%; float: right">
+            Chieasa Dives Floor Plan
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="drop-button">Views</button>
+      <div class="dropdown-content">
+        <a href="javascript:void(0);" onmousedown='setView(0)' style="width: 90%; float: left; text-align: center;">
+          <p id="view 1 text"> View 1 </p>
+        </a>
+
+        <a href="javascript:void(0);" onmousedown='setView(1)' style="width: 90%; float: left; text-align: center;">
+          <p id="view 1 text"> View 2 </p>
+        </a>
+
+        <a href="javascript:void(0);" onmousedown='setView(2)' style="width: 90%; float: left; text-align: center;">
+          <p id="view 1 text"> View 3 </p>
+        </a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="sheets">
+      <button class="drop-button">Sheets</button>
+      <div class="dropdown-content">
+        <a href="javascript:void(0);" onmousedown='switchSheet(0)' style="width: 90%; float: left; text-align: center;">
+          <p id="view 1 text"> Sheet 1 </p>
+        </a>
+
+        <a href="javascript:void(0);" onmousedown='switchSheet(1)' style="width: 90%; float: left; text-align: center;">
+          <p id="view 1 text"> Sheet 2 </p>
         </a>
       </div>
     </div>
@@ -297,22 +342,6 @@
               <td>
                 <div id="note-button" title="Create Note-Pin" data-operatorclass="toolbar-note" class="submenu-icon">
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id="measure-angle-between-faces" title="Measure Angle Between Faces"
-                  data-operatorclass="toolbar-measure-angle" class="submenu-icon"></div>
-              </td>
-              <td>
-                <div id="measure-distance-between-faces" title="Measure Distance Between Faces"
-                  data-operatorclass="toolbar-measure-distance" class="submenu-icon"></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id="measure-edges" title="Measure Edges" data-operatorclass="toolbar-measure-edge"
-                  class="submenu-icon"></div>
               </td>
               <td>
                 <div id="measure-point-to-point" title="Measure Point to Point"

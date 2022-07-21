@@ -1,9 +1,11 @@
 .dropdown {
-    position: absolute;
+    position: relative;
     display: none;
     z-index: 100;
-    right: 5px;
-    top:2px;
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top:10px;
     font-weight: bold;
 }
 
