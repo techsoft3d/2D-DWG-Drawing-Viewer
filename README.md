@@ -1,6 +1,6 @@
-# Hoops Web Platform - Mobile AEC Viewer Demo
+# Hoops Web Platform - 2D Floor Plan Demo
 
-See this demo running live on [GitHub Pages](https://techsoft3d.github.io/mobile-aec-viewer/).
+See this demo running live on [GitHub Pages](https://techsoft3d.github.io/2D-Hotel-Floor-Plan/index.html?instance=HotelFloorplan).
 
 ## In order to run locally
 

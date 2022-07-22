@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>2D Hotel Floor Plan | HOOPS Web Viewer</title>
+  <title>2D Floor Plan | HOOPS Web Viewer</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="chrome=1;IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,7 +39,6 @@
 
   <script>
     const HWP_VERSION = "2022.1.2";
-    const STREAM_CACHE_API = "https://sc-api.techsoft3d.com";
     const HWP_ENGINE_PATH = "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@2022.1.2/";
     const HWP_VIEWER_PATH = "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@2022.1.2/hoops_web_viewer.js?v=2022.1.2";
   </script>
@@ -55,20 +54,12 @@
   </script>
 
   <script type="module">
-    import { getContainerEndpoint } from "./javascripts/common/get_endpoint.js";
 
     var model_name = Sample._getParameterByName("instance");
 
-    getContainerEndpoint().then((data) => {
-      if (data == "error: 429 - Too many requests") {
-        window.location.replace("/error/too-many-requests");
-      }
-
       viewer = new Communicator.WebViewer({
         containerId: "viewer-container",
-        endpointUri: data.endpoint_uri,
-        model: model_name,
-        enginePath: HWP_ENGINE_PATH,
+        endpointUri: `data/${model_name}.scs`,
       });
 
       const uiConfig = {
@@ -94,7 +85,6 @@
       window.onresize = function () {
         viewer.resizeCanvas();
       };
-    });
   </script>
 </head>
 
@@ -107,7 +97,7 @@
   <div id="content">
     <div id="viewer-container"></div>
 
-    <!-- <div class="dropdown">
+    <div class="dropdown">
       <button class="drop-button">Models</button>
       <div class="dropdown-content">
         <a href="/2D-Hotel-Floor-Plan/index.html?instance=HotelFloorplan" style="width: 90%; float: left">
@@ -162,7 +152,7 @@
           <p id="view 1 text"> Sheet 2 </p>
         </a>
       </div>
-    </div> -->
+    </div>
 
 
     <!-- Toolbar HTML-->
