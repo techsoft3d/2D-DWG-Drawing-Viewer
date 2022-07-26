@@ -2,6 +2,8 @@
 
 See this demo running live on [GitHub Pages](https://techsoft3d.github.io/2D-DWG-Drawing-Viewer/index.html?instance=HotelFloorplan).
 
+Watch a video walkthrough for this demo on [YouTube](https://youtu.be/XwI9LWLicyw).
+
 ## In order to run locally
 
 We recommand using Visual Studio Code with the Live Server extension to run this application locally.
